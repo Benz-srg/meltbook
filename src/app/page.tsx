@@ -1,5 +1,5 @@
-import { Reader } from "@/components/Reader";
+import { Shelf } from "@/components/Shelf";
 
 export default function Home() {
-  return <Reader />;
+  return <Shelf />;
 }

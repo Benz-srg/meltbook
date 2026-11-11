@@ -1,6 +1,7 @@
-import type { Back, Bar, Bean, Cover, Intro, Lang, Page } from "@/lib/book";
-import { TONE, UI, book } from "@/lib/book";
+import type { Back, Bar, Bean, Book, Cover, Intro, Lang, Page } from "@/lib/book";
+import { TONE, UI, fill } from "@/lib/book";
 import { Logo } from "@/components/Logo";
+import { SocialIcon } from "@/components/SocialIcon";
 
 /* Each page is drawn on a sheet and sized in --u, a container unit (1% of a 3:4 sheet's width), so it
    scales like a printed page. On a phone the sheet is taller than 3:4 and --u grows up to 1.4×, so
@@ -14,19 +15,25 @@ const Folio = ({ n, light }: { n: number; light?: boolean }) => (
   <span className={`absolute bottom-[calc(2.8*var(--u))] left-1/2 -translate-x-1/2 text-[calc(2.4*var(--u))] tabular-nums ${light ? "text-cream/70" : "text-ink/45"}`}>{n}</span>
 );
 
-function CoverPage({ p, lang }: { p: Cover; lang: Lang }) {
+/* The hardcover: cloth in the volume's colour, the title stamped in cream, the landing's line art. */
+function CoverPage({ p, lang, book }: { p: Cover; lang: Lang; book: Book }) {
+  const tone = TONE[book.color];
   return (
-    <div className="flex h-full flex-col px-[calc(7*var(--u))] pb-[calc(7*var(--u))] pt-[calc(8*var(--u))]">
-      <div className="flex items-center justify-between">
-        <Logo className="h-[calc(9*var(--u))] w-auto" />
-        <span className="rounded-full bg-ink px-[calc(3*var(--u))] py-[calc(1*var(--u))] text-[calc(2.8*var(--u))] font-bold text-cream">{p.kicker[lang]}</span>
+    <div className={`relative flex h-full flex-col overflow-hidden px-[calc(8*var(--u))] pb-[calc(8*var(--u))] pt-[calc(9*var(--u))] text-cream ${tone.bg}`}>
+      {/* cloth weave and a worn edge */}
+      <span aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[.13] mix-blend-multiply" style={{ backgroundImage: "repeating-linear-gradient(0deg, #000 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, #000 0 1px, transparent 1px 3px)" }} />
+      <span aria-hidden="true" className="pointer-events-none absolute inset-[calc(3*var(--u))] rounded-[calc(3*var(--u))] border-[calc(0.5*var(--u))] border-cream/35" />
+      <div className="relative flex items-center justify-between">
+        <Logo className="h-[calc(9*var(--u))] w-auto" color="#faf9f6" />
+        <span className="rounded-full border-[calc(0.4*var(--u))] border-cream px-[calc(3*var(--u))] py-[calc(0.8*var(--u))] text-[calc(2.8*var(--u))] font-bold">{fill(UI[lang].vol, { n: book.volume })}</span>
       </div>
-      <h1 className="mt-[calc(6*var(--u))] font-display text-[min(calc(17*var(--u)),15cqw)] leading-[0.9] text-melt">meltbook</h1>
-      <p className="mt-[calc(2.5*var(--u))] text-[calc(4.4*var(--u))] font-semibold leading-snug">{book.subtitle[lang]}</p>
-      <div className="relative mt-[calc(6*var(--u))] min-h-0 flex-1 overflow-hidden rounded-[calc(6*var(--u))]">
+      <h1 className="relative mt-[calc(7*var(--u))] font-display text-[min(calc(17*var(--u)),15cqw)] leading-[0.9] drop-shadow-[0_calc(0.4*var(--u))_0_rgba(0,0,0,.18)]">meltbook</h1>
+      <p className="relative mt-[calc(2*var(--u))] font-display text-[calc(5*var(--u))] leading-tight">{book.series[lang]}</p>
+      <p className="relative mt-[calc(2*var(--u))] text-[calc(3.6*var(--u))] font-semibold leading-snug text-cream/85">{book.subtitle[lang]}</p>
+      <div className="relative mt-auto flex items-end justify-between">
+        <span className="text-[calc(2.8*var(--u))] font-bold tracking-wide text-cream/80">Melt.cei · Chiang Rai</span>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={p.image} alt="" className="absolute inset-0 size-full object-cover" />
-        <span className="absolute bottom-[calc(3*var(--u))] left-[calc(3*var(--u))] rounded-full bg-cream px-[calc(3*var(--u))] py-[calc(1*var(--u))] text-[calc(2.8*var(--u))] font-bold">Chiang Rai · Thailand</span>
+        <img src={p.art} alt="" className="h-[calc(46*var(--u))] w-auto -rotate-12 drop-shadow-[0_calc(1.5*var(--u))_calc(2*var(--u))_rgba(0,0,0,.18)]" />
       </div>
     </div>
   );
@@ -150,39 +157,50 @@ function BarPage({ p, lang, n }: { p: Bar; lang: Lang; n: number }) {
   );
 }
 
-function BackPage({ p, lang }: { p: Back; lang: Lang }) {
+function BackPage({ p, lang, book }: { p: Back; lang: Lang; book: Book }) {
   return (
-    <div className="flex h-full flex-col bg-melt px-[calc(8*var(--u))] pb-[calc(9*var(--u))] pt-[calc(10*var(--u))] text-cream">
+    <div className={`relative flex h-full flex-col px-[calc(8*var(--u))] pb-[calc(9*var(--u))] pt-[calc(10*var(--u))] text-cream ${TONE[book.color].bg}`}>
+      <span aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[.13] mix-blend-multiply" style={{ backgroundImage: "repeating-linear-gradient(0deg, #000 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, #000 0 1px, transparent 1px 3px)" }} />
       <Logo className="h-[calc(16*var(--u))] w-auto self-start" color="#faf9f6" />
       <h2 className="mt-[calc(8*var(--u))] font-display text-[calc(10*var(--u))] leading-[0.95]">{p.heading[lang]}</h2>
       <p className="mt-[calc(5*var(--u))] text-[calc(3.8*var(--u))] leading-relaxed">{p.address[lang]}</p>
       <p className="mt-[calc(2*var(--u))] text-[calc(3.8*var(--u))] font-bold">{p.hours[lang]}</p>
-      <ul className="mt-auto flex flex-wrap gap-[calc(2*var(--u))]">
-        {p.links.map((l) => (
-          <li key={l.href}>
-            <a href={l.href} target="_blank" rel="noopener noreferrer" className="inline-block rounded-full bg-cream px-[calc(4*var(--u))] py-[calc(1.6*var(--u))] text-[calc(3.4*var(--u))] font-bold text-ink hover:text-melt">
-              {l.label} ↗
-            </a>
-          </li>
+      <div className="mt-auto flex flex-wrap items-center gap-[calc(2*var(--u))]">
+        {p.social?.map((x) => (
+          <a
+            key={x.href}
+            href={x.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={x.name}
+            className="grid size-[calc(11*var(--u))] place-items-center rounded-full bg-cream text-melt transition-transform duration-300 hover:-translate-y-[calc(0.6*var(--u))] hover:text-ink"
+          >
+            <SocialIcon name={x.name} className="size-[calc(5.4*var(--u))]" />
+          </a>
         ))}
-      </ul>
+        {p.links.map((l) => (
+          <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="inline-block rounded-full border-[calc(0.5*var(--u))] border-cream px-[calc(4*var(--u))] py-[calc(1.6*var(--u))] text-[calc(3.4*var(--u))] font-bold text-cream hover:bg-cream hover:text-melt">
+            {l.label} ↗
+          </a>
+        ))}
+      </div>
       <p className="mt-[calc(5*var(--u))] text-[calc(2.6*var(--u))] text-cream/75">{book.mockNote[lang]}</p>
     </div>
   );
 }
 
-export function BookPage({ page, lang, n }: { page: Page; lang: Lang; n: number }) {
+export function BookPage({ page, lang, n, book }: { page: Page; lang: Lang; n: number; book: Book }) {
   return (
     <div className="h-full" style={{ ["--u" as string]: "max(1cqw, min(1.3cqw, 0.75cqh))" }}>
-      <Sheet page={page} lang={lang} n={n} />
+      <Sheet page={page} lang={lang} n={n} book={book} />
     </div>
   );
 }
 
-function Sheet({ page, lang, n }: { page: Page; lang: Lang; n: number }) {
+function Sheet({ page, lang, n, book }: { page: Page; lang: Lang; n: number; book: Book }) {
   switch (page.kind) {
     case "cover":
-      return <CoverPage p={page} lang={lang} />;
+      return <CoverPage p={page} lang={lang} book={book} />;
     case "intro":
       return <IntroPage p={page} lang={lang} n={n} />;
     case "bean":
@@ -190,7 +208,7 @@ function Sheet({ page, lang, n }: { page: Page; lang: Lang; n: number }) {
     case "bar":
       return <BarPage p={page} lang={lang} n={n} />;
     case "back":
-      return <BackPage p={page} lang={lang} />;
+      return <BackPage p={page} lang={lang} book={book} />;
   }
 }
 

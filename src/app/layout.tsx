@@ -16,7 +16,7 @@ const itim = Itim({ weight: "400", subsets: ["thai", "latin"], variable: "--font
 const mali = Mali({ weight: ["400", "600"], subsets: ["thai", "latin"], variable: "--font-mali", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "meltbook · ร้านกาแฟที่เกือบเรียกได้ว่า specialty ในเชียงราย",
+  title: "meltbook · ชั้นหนังสือจาก Melt.cei",
   description: "An e-book of the beans Melt.cei in Chiang Rai has brewed, with tasting notes from barista Dream. Thai and English.",
 };
 

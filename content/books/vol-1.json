@@ -1,7 +1,11 @@
 {
+  "slug": "vol-1",
+  "volume": 1,
+  "color": "melt",
+  "coverArt": "/art/cover-bag.png",
   "title": {
-    "th": "meltbook",
-    "en": "meltbook"
+    "th": "meltbook เล่ม 1",
+    "en": "meltbook Vol. 1"
   },
   "subtitle": {
     "th": "ร้านกาแฟที่เกือบเรียกได้ว่า specialty ในเชียงราย",
@@ -15,11 +19,11 @@
   "pages": [
     {
       "kind": "cover",
-      "image": "/img/187.webp",
       "kicker": {
         "th": "เล่ม 1",
         "en": "Volume 1"
-      }
+      },
+      "art": "/art/cover-bag.png"
     },
     {
       "kind": "intro",
@@ -46,7 +50,7 @@
       "kind": "bean",
       "id": "costa-rica",
       "color": "sky",
-      "art": "/cards/costa-rica-art.png",
+      "art": "/art/costa-rica.png",
       "photo": "/img/203.webp",
       "name": {
         "th": "คอสตาริกา เนเชอรัล",
@@ -92,7 +96,7 @@
       "kind": "bean",
       "id": "myanmar-shan",
       "color": "melt",
-      "art": "/cards/myanmar-shan-art.png",
+      "art": "/art/myanmar-shan.png",
       "photo": "/img/232.webp",
       "name": {
         "th": "เมียนมา รัฐฉาน",
@@ -138,7 +142,7 @@
       "kind": "bean",
       "id": "kenya-mulanga",
       "color": "melt",
-      "art": "/cards/kenya-mulanga-art.png",
+      "art": "/art/kenya-mulanga.png",
       "photo": "/img/194.webp",
       "name": {
         "th": "เคนยา มูลังกา",
@@ -184,7 +188,7 @@
       "kind": "bean",
       "id": "mae-jan-tai",
       "color": "ink",
-      "art": "/cards/mae-jan-tai-art.png",
+      "art": "/art/mae-jan-tai.png",
       "photo": "/img/215.webp",
       "name": {
         "th": "แม่จันใต้ เชียงราย",
@@ -230,7 +234,7 @@
       "kind": "bean",
       "id": "laos-bolaven",
       "color": "ink",
-      "art": "/cards/laos-bolaven-art.png",
+      "art": "/art/laos-bolaven.png",
       "photo": "/img/234.webp",
       "name": {
         "th": "ลาว โบลาเวน",
@@ -274,7 +278,7 @@
       "kind": "bean",
       "id": "honduras",
       "color": "sky",
-      "art": "/cards/honduras-art.png",
+      "art": "/art/honduras.png",
       "photo": "/img/205.webp",
       "name": {
         "th": "ฮอนดูรัส วิสกี้เอจ",
@@ -357,12 +361,26 @@
         {
           "label": "meltcei.com",
           "href": "https://meltcei.com"
+        }
+      ],
+      "social": [
+        {
+          "name": "Instagram",
+          "href": "https://www.instagram.com/melt.cei/"
         },
         {
-          "label": "IG @melt.cei",
-          "href": "https://www.instagram.com/melt.cei/"
+          "name": "Facebook",
+          "href": "https://www.facebook.com/profile.php?id=61556074877879"
+        },
+        {
+          "name": "TikTok",
+          "href": "https://www.tiktok.com/@melt.cei"
         }
       ]
     }
-  ]
+  ],
+  "series": {
+    "th": "เมล็ดกาแฟที่เราเคยชง",
+    "en": "The beans we've brewed"
+  }
 }

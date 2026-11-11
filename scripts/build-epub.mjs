@@ -1,14 +1,50 @@
-// Builds public/meltbook.epub (EPUB 3, reflowable) from content/book.json, for ReadAwrite and other
-// e-book stores. Same content as the web reader: each page in Thai, then the English underneath.
+// Builds one EPUB 3 (reflowable) per volume in content/books/*.json, for ReadAwrite and other e-book
+// stores: public/epub/<slug>.epub, plus its cover image public/covers/<slug>.png (also the share
+// image). Same content as the web reader: each page in Thai, then the English underneath.
 // Images are re-encoded to JPEG/PNG (EPUB core media types). Run: node scripts/build-epub.mjs
-import { readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+import satori from "satori";
 import { createHash } from "node:crypto";
 import path from "node:path";
 import JSZip from "jszip";
 import sharp from "sharp";
 
 const root = path.resolve(import.meta.dirname, "..");
-const book = JSON.parse(await readFile(path.join(root, "content/book.json"), "utf8"));
+const TONES = { melt: "#f21f04", sky: "#2296d2", ink: "#402722" };
+const fonts = [
+  { name: "Bagel", data: await readFile(path.join(root, "scripts/fonts/og-bagel-fat-one-latin.ttf")), weight: 400 },
+  { name: "Itim", data: await readFile(path.join(root, "scripts/fonts/og-itim.ttf")), weight: 400 },
+];
+await mkdir(path.join(root, "public/epub"), { recursive: true });
+await mkdir(path.join(root, "public/covers"), { recursive: true });
+
+/* The hardcover as an image (1200 × 1800, the 2:3 most stores ask for): cloth colour, title, art. */
+async function renderCover(book) {
+  const h = (type, style, children) => ({ type, props: { style, children } });
+  const art = `data:image/png;base64,${(await readFile(path.join(root, "public", book.coverArt))).toString("base64")}`;
+  const svg = await satori(
+    h("div", { width: 1200, height: 1800, display: "flex", flexDirection: "column", padding: 110, background: TONES[book.color], color: "#faf9f6", fontFamily: "Itim", position: "relative" }, [
+      h("div", { position: "absolute", top: 40, left: 40, width: 1120, height: 1720, border: "6px solid rgba(250,249,246,.35)", borderRadius: 40 }),
+      h("div", { display: "flex", fontSize: 56, border: "6px solid #faf9f6", borderRadius: 999, padding: "8px 36px", alignSelf: "flex-start" }, `Vol. ${book.volume}`),
+      h("div", { display: "flex", fontFamily: "Bagel", fontSize: 230, lineHeight: 0.9, marginTop: 120 }, "meltbook"),
+      h("div", { display: "flex", fontSize: 84, marginTop: 30, lineHeight: 1.2 }, book.series.th),
+      h("div", { display: "flex", fontSize: 58, marginTop: 10, opacity: 0.85 }, book.series.en),
+      h("div", { display: "flex", flex: 1 }),
+      h("div", { display: "flex", alignItems: "flex-end", justifyContent: "space-between", width: 980 }, [
+        h("div", { display: "flex", fontSize: 48, opacity: 0.85 }, "Melt.cei · Chiang Rai"),
+        { type: "img", props: { src: art, width: 400, height: 455, style: { transform: "rotate(-12deg)", marginRight: 20 } } },
+      ]),
+    ]),
+    { width: 1200, height: 1800, fonts },
+  );
+  const png = await sharp(Buffer.from(svg)).png().toBuffer();
+  await writeFile(path.join(root, `public/covers/${book.slug}.png`), png);
+  return png;
+}
+
+for (const file of (await readdir(path.join(root, "content/books"))).filter((f) => f.endsWith(".json"))) {
+const book = JSON.parse(await readFile(path.join(root, "content/books", file), "utf8"));
+const coverPng = await renderCover(book);
 const LANGS = ["th", "en"];
 const MOCK = { th: "ตัวอย่าง", en: "Sample" };
 const UI = {
@@ -26,6 +62,8 @@ zip.file(
 
 // images: web paths → files inside the book
 const images = new Map();
+zip.file("OEBPS/images/cover.png", coverPng);
+images.set("cover", { href: "images/cover.png", type: "image/png", cover: true });
 async function img(src, { cover = false } = {}) {
   if (images.has(src)) return images.get(src).href;
   const file = path.join(root, "public", src);
@@ -45,7 +83,7 @@ async function body(p) {
   const out = [];
   if (p.kind === "cover") {
     out.push(`<section class="cover"><h1>meltbook</h1><p class="sub">${esc(book.subtitle.th)}</p><p class="sub en">${esc(book.subtitle.en)}</p>`);
-    out.push(`<p class="kicker">${esc(p.kicker.th)} · ${esc(p.kicker.en)}</p><img src="${await img(p.image, { cover: true })}" alt="Melt.cei coffee beans"/></section>`);
+    out.push(`<p class="kicker">${esc(p.kicker.th)} · ${esc(p.kicker.en)}</p><img src="images/cover.png" alt="meltbook ${book.volume}"/></section>`);
     return out.join("");
   }
   if (p.kind === "intro" || p.kind === "bar") out.push(`<img class="hero" src="${await img(p.image)}" alt=""/>`);
@@ -66,7 +104,7 @@ async function body(p) {
       out.push(`<h2>${esc(p.heading[l])} ${p.mock ? mockTag(l) : ""}</h2><ol>${p.steps[l].map((s) => `<li>${esc(s)}</li>`).join("")}</ol>`);
     } else if (p.kind === "back") {
       out.push(`<h2>${esc(p.heading[l])}</h2><p>${esc(p.address[l])}</p><p><b>${esc(p.hours[l])}</b></p>`);
-      if (l === "en") out.push(`<p>${p.links.map((x) => `<a href="${esc(x.href)}">${esc(x.label)}</a>`).join(" · ")}</p><p class="small">${esc(book.mockNote.th)}<br/>${esc(book.mockNote.en)}</p>`);
+      if (l === "en") out.push(`<p>${[...p.links, ...(p.social ?? []).map((x) => ({ label: x.name, href: x.href }))].map((x) => `<a href="${esc(x.href)}">${esc(x.label)}</a>`).join(" · ")}</p><p class="small">${esc(book.mockNote.th)}<br/>${esc(book.mockNote.en)}</p>`);
     }
     out.push(`</section>`);
   }
@@ -108,7 +146,7 @@ const items = [...images.values()].map((m, k) => `<item id="img${k}" href="${m.h
 const opf = `<?xml version="1.0" encoding="UTF-8"?>
 <package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="bookid" xml:lang="th">
 <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
-<dc:identifier id="bookid">${id}</dc:identifier><dc:title>meltbook — ${esc(book.subtitle.th)}</dc:title>
+<dc:identifier id="bookid">${id}</dc:identifier><dc:title>${esc(book.title.th)} — ${esc(book.series.th)}</dc:title>
 <dc:creator>${esc(book.author)}</dc:creator><dc:language>th</dc:language><dc:language>en</dc:language>
 <dc:publisher>Melt.cei</dc:publisher><dc:description>${esc(book.subtitle.en)}</dc:description><meta property="dcterms:modified">${modified}</meta>
 </metadata>
@@ -121,5 +159,6 @@ ${items.join("\n")}
 zip.file("OEBPS/content.opf", opf);
 
 const buf = await zip.generateAsync({ type: "nodebuffer", mimeType: "application/epub+zip", compression: "DEFLATE" });
-await writeFile(path.join(root, "public/meltbook.epub"), buf);
-console.log(`meltbook.epub: ${chapters.length} pages, ${images.size} images, ${(buf.length / 1024).toFixed(0)} KB`);
+await writeFile(path.join(root, `public/epub/${book.slug}.epub`), buf);
+console.log(`epub/${book.slug}.epub: ${chapters.length} pages, ${images.size} images, ${(buf.length / 1024).toFixed(0)} KB`);
+}

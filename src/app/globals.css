@@ -23,22 +23,41 @@ body {
   overflow-x: clip;
 }
 
-/* page turns: the leaf swings around the spine; its shade deepens as it stands up */
+/* page turns: the leaf swings around the spine; a shade crosses it as it stands up, and its
+   shadow falls on the page underneath, then lifts */
 @keyframes leaf-next {
-  from { transform: rotateY(0deg); filter: brightness(1); }
-  50% { filter: brightness(0.9); }
-  to { transform: rotateY(-180deg); filter: brightness(1); }
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(-180deg); }
 }
 @keyframes leaf-prev {
-  from { transform: rotateY(0deg); filter: brightness(1); }
-  50% { filter: brightness(0.9); }
-  to { transform: rotateY(180deg); filter: brightness(1); }
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(180deg); }
+}
+@keyframes leaf-shade {
+  from { background: rgba(64, 39, 34, 0); }
+  50% { background: rgba(64, 39, 34, 0.28); }
+  to { background: rgba(64, 39, 34, 0.28); }
+}
+@keyframes leaf-shade-back {
+  from { background: rgba(64, 39, 34, 0.3); }
+  50% { background: rgba(64, 39, 34, 0.3); }
+  to { background: rgba(64, 39, 34, 0); }
+}
+@keyframes cast-next {
+  from { background: linear-gradient(to right, rgba(64, 39, 34, 0.35), transparent 60%); opacity: 0.2; }
+  45% { opacity: 1; }
+  to { background: linear-gradient(to right, rgba(64, 39, 34, 0.35), transparent 60%); opacity: 0; }
+}
+@keyframes cast-prev {
+  from { background: linear-gradient(to left, rgba(64, 39, 34, 0.35), transparent 60%); opacity: 0.2; }
+  45% { opacity: 1; }
+  to { background: linear-gradient(to left, rgba(64, 39, 34, 0.35), transparent 60%); opacity: 0; }
 }
 @keyframes single-next {
   from { transform: rotateY(0deg); }
-  to { transform: rotateY(-180deg); opacity: 0.6; }
+  to { transform: rotateY(-120deg); opacity: 0; }
 }
 @keyframes single-prev {
-  from { transform: rotateY(-180deg); opacity: 0.6; }
+  from { transform: rotateY(-120deg); opacity: 0; }
   to { transform: rotateY(0deg); }
 }
