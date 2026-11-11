@@ -11,16 +11,18 @@
     "prebuild": "node scripts/build-epub.mjs"
   },
   "dependencies": {
+    "html-to-image": "^1.11.13",
     "next": "16.4.0",
-    "page-flip": "^2.0.7",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "three": "^0.187.0"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.187.0",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
     "jszip": "^3.10.2",

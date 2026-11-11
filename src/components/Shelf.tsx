@@ -36,25 +36,22 @@ export function Shelf() {
               const tone = TONE[b.color];
               return (
                 <li key={b.slug} className="flex flex-col items-start gap-4">
-                  <Link href={`/book/${b.slug}`} className="group block [perspective:1200px]" aria-label={`${t.read} ${b.title[lang]}`}>
-                    <div className="relative h-[300px] w-[220px] transition-transform duration-500 ease-[cubic-bezier(.34,1.56,.64,1)] [transform-style:preserve-3d] [transform:rotateY(-24deg)] group-hover:[transform:rotateY(-8deg)_translateY(-8px)]">
-                      {/* page block */}
-                      <span aria-hidden="true" className="absolute right-0 top-[4px] h-[292px] w-[30px] origin-right [transform:rotateY(90deg)_translateX(15px)]" style={{ background: "repeating-linear-gradient(to bottom, #f4f1ea 0 1px, #ddd6cb 1px 2px)" }} />
-                      {/* spine */}
-                      <span aria-hidden="true" className={`absolute left-0 top-0 flex h-full w-[34px] origin-left items-center justify-center [transform:rotateY(-90deg)] ${tone.bg}`}>
-                        <span className="rotate-90 whitespace-nowrap font-display text-sm text-cream">meltbook · {b.volume}</span>
+                  <Link href={`/book/${b.slug}`} className="group block" aria-label={`${t.read} ${b.title[lang]}`}>
+                    {/* a flat, Melt-style book: rounded red cover, a darker spine strip, a cream page edge */}
+                    <div className="relative flex h-[300px] w-[230px] transition-transform duration-500 ease-[cubic-bezier(.34,1.56,.64,1)] group-hover:-translate-y-2 group-hover:-rotate-2">
+                      <span aria-hidden="true" className={`flex w-[30px] shrink-0 items-center justify-center rounded-l-[14px] ${tone.bg} brightness-[.82]`}>
+                        <span className="whitespace-nowrap font-display text-sm text-cream [writing-mode:vertical-rl]">meltbook · {b.volume}</span>
                       </span>
-                      {/* front cover */}
-                      <div className={`absolute inset-0 overflow-hidden rounded-r-[8px] p-5 text-cream shadow-[18px_24px_40px_-18px_rgba(64,39,34,.55)] ${tone.bg}`}>
-                        <span aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[.13] mix-blend-multiply" style={{ backgroundImage: "repeating-linear-gradient(0deg, #000 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, #000 0 1px, transparent 1px 3px)" }} />
-                        <span aria-hidden="true" className="absolute inset-y-0 left-[10px] w-[3px] bg-black/10" />
+                      <div className={`relative flex-1 overflow-hidden rounded-r-[18px] p-5 text-cream ${tone.bg}`}>
+                        <span aria-hidden="true" className="absolute inset-2 rounded-[12px] border-2 border-cream/40" />
                         <Logo className="relative h-6 w-auto" color="#faf9f6" />
-                        <p className="relative mt-5 font-display text-[40px] leading-[0.9]">meltbook</p>
+                        <p className="relative mt-5 font-display text-[34px] leading-[0.9]">meltbook</p>
                         <p className="relative mt-1 font-display text-base leading-tight">{b.series[lang]}</p>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={b.coverArt} alt="" className="absolute -bottom-2 right-2 h-[120px] w-auto -rotate-12" />
-                        <span className="absolute bottom-4 left-5 rounded-full border-2 border-cream px-2 py-0.5 text-xs font-bold">{fill(t.vol, { n: b.volume })}</span>
+                        <img src={b.coverArt} alt="" className="absolute -bottom-3 right-1 h-[118px] w-auto -rotate-12" />
+                        <span className="absolute bottom-5 left-5 rounded-full border-2 border-cream px-2 py-0.5 text-xs font-bold">{fill(t.vol, { n: b.volume })}</span>
                       </div>
+                      <span aria-hidden="true" className="absolute -right-1.5 bottom-2 top-2 -z-10 w-3 rounded-r-[10px] bg-sand-2" />
                     </div>
                   </Link>
                   <div>
@@ -74,7 +71,7 @@ export function Shelf() {
             })}
           </ul>
           {/* the shelf board */}
-          <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-[300px] h-4 rounded-sm bg-mocha shadow-[0_14px_24px_-10px_rgba(64,39,34,.6)]" />
+          <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-[300px] h-3 rounded-full bg-ink" />
         </div>
       </section>
     </div>

@@ -8,8 +8,8 @@
     "en": "meltbook Vol. 1"
   },
   "subtitle": {
-    "th": "ร้านกาแฟที่เกือบเรียกได้ว่า specialty ในเชียงราย",
-    "en": "An almost-specialty coffee shop in Chiang Rai"
+    "th": "Specialty ไม่เต็มร้อย แต่ตั้งใจเต็มแก้ว",
+    "en": "Not quite specialty, fully in love with coffee"
   },
   "author": "Melt.cei",
   "mockNote": {
@@ -34,12 +34,12 @@
       },
       "body": {
         "th": [
-          "Melt.cei คือร้านกาแฟที่เกือบเรียกได้ว่า specialty ในเชียงราย ร้านเล็ก ๆ ในอำเภอเมือง เปิดในปี 2025 ดูแลโดยคนเดียว คือ Dream",
+          "Melt.cei คือร้านกาแฟเล็ก ๆ ในเชียงราย specialty ไม่เต็มร้อย แต่ตั้งใจเต็มแก้ว เปิดในปี 2025 ดูแลโดยคนเดียว คือ Dream",
           "สารกาแฟทุกล็อตถูกคัดด้วยมือก่อนคั่ว และกาแฟทุกแก้วชงตามสั่งทีละแก้ว",
           "เล่มนี้รวมเมล็ดที่เคยผ่านบาร์ของเรา พร้อมโน้ตรสชาติจาก Dream"
         ],
         "en": [
-          "Melt.cei is a coffee shop in Chiang Rai that can almost call itself specialty: a small place in Mueang, opened in 2025 and run by one person, Dream.",
+          "Melt.cei is a little coffee shop in Chiang Rai: not quite specialty, fully in love with coffee. It opened in 2025 and is run by one person, Dream.",
           "Every lot of green coffee is sorted by hand before roasting, and every cup is brewed to order, one at a time.",
           "This book collects the beans that have passed over our bar, with Dream's tasting notes."
         ]

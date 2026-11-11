@@ -38,8 +38,8 @@ export const TONE: Record<Tone, { text: string; bg: string; hex: string }> = {
 };
 
 export const UI = {
-  th: { prev: "ก่อนหน้า", next: "ถัดไป", page: "หน้า", roast: "ระดับคั่ว", origin: "แหล่งปลูก", process: "โพรเซส", altitude: "ความสูง", notes: "โน้ตรสชาติ", review: "Dream ว่า", acidity: "ความเปรี้ยว", sweetness: "ความหวาน", body: "บอดี้", mock: "ตัวอย่าง", epub: "ดาวน์โหลด EPUB", contents: "สารบัญ", shelf: "ชั้นหนังสือ", read: "เปิดอ่าน", pages: "{n} หน้า", vol: "เล่ม {n}", shelfLead: "หนังสือเล่มเล็กจาก Melt.cei ร้านกาแฟที่เกือบเรียกได้ว่า specialty ในเชียงราย" },
-  en: { prev: "Previous", next: "Next", page: "Page", roast: "Roast", origin: "Origin", process: "Process", altitude: "Altitude", notes: "Tasting notes", review: "Dream says", acidity: "Acidity", sweetness: "Sweetness", body: "Body", mock: "Sample", epub: "Download EPUB", contents: "Contents", shelf: "Bookshelf", read: "Read", pages: "{n} pages", vol: "Vol. {n}", shelfLead: "Little books from Melt.cei, an almost-specialty coffee shop in Chiang Rai" },
+  th: { prev: "ก่อนหน้า", next: "ถัดไป", page: "หน้า", roast: "ระดับคั่ว", origin: "แหล่งปลูก", process: "โพรเซส", altitude: "ความสูง", notes: "โน้ตรสชาติ", review: "Dream ว่า", acidity: "ความเปรี้ยว", sweetness: "ความหวาน", body: "บอดี้", mock: "ตัวอย่าง", epub: "ดาวน์โหลด EPUB", contents: "สารบัญ", shelf: "ชั้นหนังสือ", read: "เปิดอ่าน", pages: "{n} หน้า", vol: "เล่ม {n}", shelfLead: "หนังสือเล่มเล็กจาก Melt.cei เชียงราย · Specialty ไม่เต็มร้อย แต่ตั้งใจเต็มแก้ว" },
+  en: { prev: "Previous", next: "Next", page: "Page", roast: "Roast", origin: "Origin", process: "Process", altitude: "Altitude", notes: "Tasting notes", review: "Dream says", acidity: "Acidity", sweetness: "Sweetness", body: "Body", mock: "Sample", epub: "Download EPUB", contents: "Contents", shelf: "Bookshelf", read: "Read", pages: "{n} pages", vol: "Vol. {n}", shelfLead: "Little books from Melt.cei, Chiang Rai · not quite specialty, fully in love with coffee" },
 } satisfies Record<Lang, Record<string, string>>;
 
 export const fill = (s: string, v: Record<string, string | number>) => s.replace(/\{(\w+)\}/g, (_, k) => String(v[k] ?? ""));

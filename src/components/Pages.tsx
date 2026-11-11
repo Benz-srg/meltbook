@@ -15,13 +15,11 @@ const Folio = ({ n, light }: { n: number; light?: boolean }) => (
   <span className={`absolute bottom-[calc(2.8*var(--u))] left-1/2 -translate-x-1/2 text-[calc(2.4*var(--u))] tabular-nums ${light ? "text-cream/70" : "text-ink/45"}`}>{n}</span>
 );
 
-/* The hardcover: cloth in the volume's colour, the title stamped in cream, the landing's line art. */
+/* The hardcover: flat in the volume's colour, the title in cream, the landing's line art. */
 function CoverPage({ p, lang, book }: { p: Cover; lang: Lang; book: Book }) {
   const tone = TONE[book.color];
   return (
     <div className={`relative flex h-full flex-col overflow-hidden px-[calc(8*var(--u))] pb-[calc(8*var(--u))] pt-[calc(9*var(--u))] text-cream ${tone.bg}`}>
-      {/* cloth weave and a worn edge */}
-      <span aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[.13] mix-blend-multiply" style={{ backgroundImage: "repeating-linear-gradient(0deg, #000 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, #000 0 1px, transparent 1px 3px)" }} />
       <span aria-hidden="true" className="pointer-events-none absolute inset-[calc(3*var(--u))] rounded-[calc(3*var(--u))] border-[calc(0.5*var(--u))] border-cream/35" />
       <div className="relative flex items-center justify-between">
         <Logo className="h-[calc(9*var(--u))] w-auto" color="#faf9f6" />
@@ -160,7 +158,6 @@ function BarPage({ p, lang, n }: { p: Bar; lang: Lang; n: number }) {
 function BackPage({ p, lang, book }: { p: Back; lang: Lang; book: Book }) {
   return (
     <div className={`relative flex h-full flex-col px-[calc(8*var(--u))] pb-[calc(9*var(--u))] pt-[calc(10*var(--u))] text-cream ${TONE[book.color].bg}`}>
-      <span aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[.13] mix-blend-multiply" style={{ backgroundImage: "repeating-linear-gradient(0deg, #000 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, #000 0 1px, transparent 1px 3px)" }} />
       <Logo className="h-[calc(16*var(--u))] w-auto self-start" color="#faf9f6" />
       <h2 className="mt-[calc(8*var(--u))] font-display text-[calc(10*var(--u))] leading-[0.95]">{p.heading[lang]}</h2>
       <p className="mt-[calc(5*var(--u))] text-[calc(3.8*var(--u))] leading-relaxed">{p.address[lang]}</p>
