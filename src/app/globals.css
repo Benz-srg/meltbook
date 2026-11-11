@@ -23,20 +23,22 @@ body {
   overflow-x: clip;
 }
 
-@keyframes turn-in {
-  from {
-    opacity: 0;
-    transform: translateX(28px) rotate(1.5deg) scale(0.97);
-  }
+/* page turns: the leaf swings around the spine; its shade deepens as it stands up */
+@keyframes leaf-next {
+  from { transform: rotateY(0deg); filter: brightness(1); }
+  50% { filter: brightness(0.9); }
+  to { transform: rotateY(-180deg); filter: brightness(1); }
 }
-@keyframes turn-back {
-  from {
-    opacity: 0;
-    transform: translateX(-28px) rotate(-1.5deg) scale(0.97);
-  }
+@keyframes leaf-prev {
+  from { transform: rotateY(0deg); filter: brightness(1); }
+  50% { filter: brightness(0.9); }
+  to { transform: rotateY(180deg); filter: brightness(1); }
 }
-@media (prefers-reduced-motion: reduce) {
-  article {
-    animation: none !important;
-  }
+@keyframes single-next {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(-180deg); opacity: 0.6; }
+}
+@keyframes single-prev {
+  from { transform: rotateY(-180deg); opacity: 0.6; }
+  to { transform: rotateY(0deg); }
 }

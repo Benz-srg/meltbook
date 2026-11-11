@@ -1,6 +1,12 @@
 {
-  "title": { "th": "meltbook", "en": "meltbook" },
-  "subtitle": { "th": "เมล็ดกาแฟที่ Melt.cei เคยชง", "en": "The beans Melt.cei has brewed" },
+  "title": {
+    "th": "meltbook",
+    "en": "meltbook"
+  },
+  "subtitle": {
+    "th": "ร้านกาแฟที่เกือบเรียกได้ว่า specialty ในเชียงราย",
+    "en": "An almost-specialty coffee shop in Chiang Rai"
+  },
   "author": "Melt.cei",
   "mockNote": {
     "th": "ฉบับตัวอย่าง: รีวิวและคะแนนเป็นข้อความสมมติ รอข้อมูลจริงจาก IG @melt.cei",
@@ -10,20 +16,26 @@
     {
       "kind": "cover",
       "image": "/img/187.webp",
-      "kicker": { "th": "เล่ม 1", "en": "Volume 1" }
+      "kicker": {
+        "th": "เล่ม 1",
+        "en": "Volume 1"
+      }
     },
     {
       "kind": "intro",
       "image": "/img/213.webp",
-      "heading": { "th": "สวัสดีจากสโลว์บาร์", "en": "Hello from the slow bar" },
+      "heading": {
+        "th": "สวัสดีจากสโลว์บาร์",
+        "en": "Hello from the slow bar"
+      },
       "body": {
         "th": [
-          "Melt.cei คือร้านกาแฟ specialty เล็ก ๆ ในอำเภอเมืองเชียงราย เปิดในปี 2025 ดูแลโดยคนเดียว คือ Dream",
+          "Melt.cei คือร้านกาแฟที่เกือบเรียกได้ว่า specialty ในเชียงราย ร้านเล็ก ๆ ในอำเภอเมือง เปิดในปี 2025 ดูแลโดยคนเดียว คือ Dream",
           "สารกาแฟทุกล็อตถูกคัดด้วยมือก่อนคั่ว และกาแฟทุกแก้วชงตามสั่งทีละแก้ว",
           "เล่มนี้รวมเมล็ดที่เคยผ่านบาร์ของเรา พร้อมโน้ตรสชาติจาก Dream"
         ],
         "en": [
-          "Melt.cei is a small specialty coffee shop in Mueang Chiang Rai. It opened in 2025 and is run by one person, Dream.",
+          "Melt.cei is a coffee shop in Chiang Rai that can almost call itself specialty: a small place in Mueang, opened in 2025 and run by one person, Dream.",
           "Every lot of green coffee is sorted by hand before roasting, and every cup is brewed to order, one at a time.",
           "This book collects the beans that have passed over our bar, with Dream's tasting notes."
         ]
@@ -36,13 +48,40 @@
       "color": "sky",
       "art": "/cards/costa-rica-art.png",
       "photo": "/img/203.webp",
-      "name": { "th": "คอสตาริกา เนเชอรัล", "en": "Costa Rica Natural" },
-      "roast": { "th": "คั่วอ่อน", "en": "Light roast" },
-      "origin": { "th": "คอสตาริกา", "en": "Costa Rica" },
-      "process": { "th": "Natural", "en": "Natural" },
+      "name": {
+        "th": "คอสตาริกา เนเชอรัล",
+        "en": "Costa Rica Natural"
+      },
+      "roast": {
+        "th": "คั่วอ่อน",
+        "en": "Light roast"
+      },
+      "origin": {
+        "th": "คอสตาริกา",
+        "en": "Costa Rica"
+      },
+      "process": {
+        "th": "Natural",
+        "en": "Natural"
+      },
       "altitude": "1,950 masl",
-      "notes": { "th": ["ลาเวนเดอร์", "กุหลาบ", "องุ่น"], "en": ["Lavender", "Rose", "Grapes"] },
-      "scores": { "acidity": 4, "sweetness": 4, "body": 2 },
+      "notes": {
+        "th": [
+          "ลาเวนเดอร์",
+          "กุหลาบ",
+          "องุ่น"
+        ],
+        "en": [
+          "Lavender",
+          "Rose",
+          "Grapes"
+        ]
+      },
+      "scores": {
+        "acidity": 4,
+        "sweetness": 4,
+        "body": 2
+      },
       "review": {
         "mock": true,
         "th": "กลิ่นดอกไม้มาก่อนตั้งแต่ตอนบด จิบแรกเป็นองุ่นม่วงชัด ๆ แล้วจบด้วยกุหลาบบาง ๆ ชงดริปน้ำ 92°C กำลังดี",
@@ -55,13 +94,40 @@
       "color": "melt",
       "art": "/cards/myanmar-shan-art.png",
       "photo": "/img/232.webp",
-      "name": { "th": "เมียนมา รัฐฉาน", "en": "Myanmar Shan States" },
-      "roast": { "th": "คั่วอ่อน", "en": "Light roast" },
-      "origin": { "th": "รัฐฉาน เมียนมา", "en": "Shan States, Myanmar" },
-      "process": { "th": "Washed", "en": "Washed" },
+      "name": {
+        "th": "เมียนมา รัฐฉาน",
+        "en": "Myanmar Shan States"
+      },
+      "roast": {
+        "th": "คั่วอ่อน",
+        "en": "Light roast"
+      },
+      "origin": {
+        "th": "รัฐฉาน เมียนมา",
+        "en": "Shan States, Myanmar"
+      },
+      "process": {
+        "th": "Washed",
+        "en": "Washed"
+      },
       "altitude": "1,300 masl",
-      "notes": { "th": ["เบอร์รี่", "ดอกไม้", "น้ำตาลทรายแดง"], "en": ["Berry", "Floral", "Brown sugar"] },
-      "scores": { "acidity": 3, "sweetness": 4, "body": 3 },
+      "notes": {
+        "th": [
+          "เบอร์รี่",
+          "ดอกไม้",
+          "น้ำตาลทรายแดง"
+        ],
+        "en": [
+          "Berry",
+          "Floral",
+          "Brown sugar"
+        ]
+      },
+      "scores": {
+        "acidity": 3,
+        "sweetness": 4,
+        "body": 3
+      },
       "review": {
         "mock": true,
         "th": "เบอร์รี่ฉ่ำ ๆ หวานแบบน้ำตาลทรายแดง ทำเป็นอเมริกาโน่เย็นแล้วสดชื่นมาก เป็นตัวที่ลูกค้าถามซ้ำบ่อยที่สุด",
@@ -74,13 +140,40 @@
       "color": "melt",
       "art": "/cards/kenya-mulanga-art.png",
       "photo": "/img/194.webp",
-      "name": { "th": "เคนยา มูลังกา", "en": "Kenya Mulanga" },
-      "roast": { "th": "คั่วอ่อน", "en": "Light roast" },
-      "origin": { "th": "เคนยา", "en": "Kenya" },
-      "process": { "th": "Washed", "en": "Washed" },
+      "name": {
+        "th": "เคนยา มูลังกา",
+        "en": "Kenya Mulanga"
+      },
+      "roast": {
+        "th": "คั่วอ่อน",
+        "en": "Light roast"
+      },
+      "origin": {
+        "th": "เคนยา",
+        "en": "Kenya"
+      },
+      "process": {
+        "th": "Washed",
+        "en": "Washed"
+      },
       "altitude": "1,340 – 1,950 masl",
-      "notes": { "th": ["มะเขือเทศ", "ดอกไม้ขาว", "ชา"], "en": ["Tomato", "White flowers", "Tea"] },
-      "scores": { "acidity": 5, "sweetness": 3, "body": 2 },
+      "notes": {
+        "th": [
+          "มะเขือเทศ",
+          "ดอกไม้ขาว",
+          "ชา"
+        ],
+        "en": [
+          "Tomato",
+          "White flowers",
+          "Tea"
+        ]
+      },
+      "scores": {
+        "acidity": 5,
+        "sweetness": 3,
+        "body": 2
+      },
       "review": {
         "mock": true,
         "th": "เปรี้ยวสดแบบมะเขือเทศสุก ตามด้วยดอกไม้ขาวและบอดี้เบาเหมือนชา คนที่ชอบกาแฟสว่าง ๆ ต้องลอง",
@@ -93,13 +186,40 @@
       "color": "ink",
       "art": "/cards/mae-jan-tai-art.png",
       "photo": "/img/215.webp",
-      "name": { "th": "แม่จันใต้ เชียงราย", "en": "Mae Jan Tai, Chiang Rai" },
-      "roast": { "th": "คั่วกลาง", "en": "Medium roast" },
-      "origin": { "th": "แม่จันใต้ เชียงราย", "en": "Mae Jan Tai, Chiang Rai" },
-      "process": { "th": "Washed", "en": "Washed" },
+      "name": {
+        "th": "แม่จันใต้ เชียงราย",
+        "en": "Mae Jan Tai, Chiang Rai"
+      },
+      "roast": {
+        "th": "คั่วกลาง",
+        "en": "Medium roast"
+      },
+      "origin": {
+        "th": "แม่จันใต้ เชียงราย",
+        "en": "Mae Jan Tai, Chiang Rai"
+      },
+      "process": {
+        "th": "Washed",
+        "en": "Washed"
+      },
       "altitude": "1,200 – 1,500 masl",
-      "notes": { "th": ["อัลมอนด์", "ถั่วลิสง", "ช็อกโกแลต"], "en": ["Almond", "Peanut", "Chocolate"] },
-      "scores": { "acidity": 2, "sweetness": 4, "body": 4 },
+      "notes": {
+        "th": [
+          "อัลมอนด์",
+          "ถั่วลิสง",
+          "ช็อกโกแลต"
+        ],
+        "en": [
+          "Almond",
+          "Peanut",
+          "Chocolate"
+        ]
+      },
+      "scores": {
+        "acidity": 2,
+        "sweetness": 4,
+        "body": 4
+      },
       "review": {
         "mock": true,
         "th": "เมล็ดบ้านเรา ถั่วคั่วกับช็อกโกแลตนม กลมกล่อมมาก ใส่นมแล้วเข้ากันดีที่สุดในเล่มนี้",
@@ -112,13 +232,38 @@
       "color": "ink",
       "art": "/cards/laos-bolaven-art.png",
       "photo": "/img/234.webp",
-      "name": { "th": "ลาว โบลาเวน", "en": "Laos Bolaven" },
-      "roast": { "th": "คั่วเข้ม", "en": "Dark roast" },
-      "origin": { "th": "ที่ราบสูงโบลาเวน ลาว", "en": "Bolaven Plateau, Laos" },
-      "process": { "th": "Washed", "en": "Washed" },
+      "name": {
+        "th": "ลาว โบลาเวน",
+        "en": "Laos Bolaven"
+      },
+      "roast": {
+        "th": "คั่วเข้ม",
+        "en": "Dark roast"
+      },
+      "origin": {
+        "th": "ที่ราบสูงโบลาเวน ลาว",
+        "en": "Bolaven Plateau, Laos"
+      },
+      "process": {
+        "th": "Washed",
+        "en": "Washed"
+      },
       "altitude": null,
-      "notes": { "th": ["ดาร์กช็อกโกแลต", "บอดี้หนัก"], "en": ["Dark chocolate", "Heavy body"] },
-      "scores": { "acidity": 1, "sweetness": 3, "body": 5 },
+      "notes": {
+        "th": [
+          "ดาร์กช็อกโกแลต",
+          "บอดี้หนัก"
+        ],
+        "en": [
+          "Dark chocolate",
+          "Heavy body"
+        ]
+      },
+      "scores": {
+        "acidity": 1,
+        "sweetness": 3,
+        "body": 5
+      },
       "review": {
         "mock": true,
         "th": "เข้ม หนัก ดาร์กช็อกโกแลตเต็ม ๆ เหมาะกับคนที่อยากได้กาแฟตื่นเช้า ทำดริปแบบซองก็ยังอร่อย",
@@ -131,13 +276,40 @@
       "color": "sky",
       "art": "/cards/honduras-art.png",
       "photo": "/img/205.webp",
-      "name": { "th": "ฮอนดูรัส วิสกี้เอจ", "en": "Honduras Whisky Aged" },
-      "roast": { "th": "คั่วอ่อน", "en": "Light roast" },
-      "origin": { "th": "ฮอนดูรัส", "en": "Honduras" },
-      "process": { "th": "Whisky-aged", "en": "Whisky-aged" },
+      "name": {
+        "th": "ฮอนดูรัส วิสกี้เอจ",
+        "en": "Honduras Whisky Aged"
+      },
+      "roast": {
+        "th": "คั่วอ่อน",
+        "en": "Light roast"
+      },
+      "origin": {
+        "th": "ฮอนดูรัส",
+        "en": "Honduras"
+      },
+      "process": {
+        "th": "Whisky-aged",
+        "en": "Whisky-aged"
+      },
       "altitude": "1,400 – 1,700 masl",
-      "notes": { "th": ["วานิลลา", "วิสกี้", "ครีมมี่"], "en": ["Vanilla", "Whisky", "Creamy"] },
-      "scores": { "acidity": 3, "sweetness": 5, "body": 3 },
+      "notes": {
+        "th": [
+          "วานิลลา",
+          "วิสกี้",
+          "ครีมมี่"
+        ],
+        "en": [
+          "Vanilla",
+          "Whisky",
+          "Creamy"
+        ]
+      },
+      "scores": {
+        "acidity": 3,
+        "sweetness": 5,
+        "body": 3
+      },
       "review": {
         "mock": true,
         "th": "หอมวิสกี้ตั้งแต่เปิดถุง แต่ดื่มแล้วหวานแบบวานิลลาไอศกรีม ไม่มีแอลกอฮอล์นะ เป็นกลิ่นจากถังบ่ม",
@@ -147,24 +319,49 @@
     {
       "kind": "bar",
       "image": "/img/199.webp",
-      "heading": { "th": "ชงแบบ Dream", "en": "Brewing like Dream" },
+      "heading": {
+        "th": "ชงแบบ Dream",
+        "en": "Brewing like Dream"
+      },
       "steps": {
-        "th": ["เมล็ด 15 กรัม บดกลาง", "น้ำ 92°C 250 มล.", "บลูม 30 วินาที แล้วรินเป็นวง", "รวมเวลา 2:30 – 3:00 นาที"],
-        "en": ["15 g of beans, medium grind", "250 ml of water at 92°C", "Bloom for 30 s, then pour in circles", "Total time 2:30 – 3:00"]
+        "th": [
+          "เมล็ด 15 กรัม บดกลาง",
+          "น้ำ 92°C 250 มล.",
+          "บลูม 30 วินาที แล้วรินเป็นวง",
+          "รวมเวลา 2:30 – 3:00 นาที"
+        ],
+        "en": [
+          "15 g of beans, medium grind",
+          "250 ml of water at 92°C",
+          "Bloom for 30 s, then pour in circles",
+          "Total time 2:30 – 3:00"
+        ]
       },
       "mock": true
     },
     {
       "kind": "back",
-      "heading": { "th": "แวะมาชิมที่ร้าน", "en": "Come taste it at the bar" },
+      "heading": {
+        "th": "แวะมาชิมที่ร้าน",
+        "en": "Come taste it at the bar"
+      },
       "address": {
         "th": "127/3 รอบเวียง อ.เมืองเชียงราย 57000 (ใกล้โรงเรียนเทศบาล 3 ศรีทรายมูล)",
         "en": "127/3 Rop Wiang, Mueang Chiang Rai 57000 (near Tessaban 3 Sri Sai Mun School)"
       },
-      "hours": { "th": "จันทร์–เสาร์ 08:00–16:00 · หยุดวันอาทิตย์", "en": "Mon–Sat 08:00–16:00 · closed Sunday" },
+      "hours": {
+        "th": "จันทร์–เสาร์ 08:00–16:00 · หยุดวันอาทิตย์",
+        "en": "Mon–Sat 08:00–16:00 · closed Sunday"
+      },
       "links": [
-        { "label": "meltcei.com", "href": "https://meltcei.com" },
-        { "label": "IG @melt.cei", "href": "https://www.instagram.com/melt.cei/" }
+        {
+          "label": "meltcei.com",
+          "href": "https://meltcei.com"
+        },
+        {
+          "label": "IG @melt.cei",
+          "href": "https://www.instagram.com/melt.cei/"
+        }
       ]
     }
   ]

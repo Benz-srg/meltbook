@@ -173,7 +173,7 @@ function BackPage({ p, lang }: { p: Back; lang: Lang }) {
 
 export function BookPage({ page, lang, n }: { page: Page; lang: Lang; n: number }) {
   return (
-    <div className="h-full" style={{ ["--u" as string]: "max(1cqw, min(1.4cqw, 0.75cqh))" }}>
+    <div className="h-full" style={{ ["--u" as string]: "max(1cqw, min(1.3cqw, 0.75cqh))" }}>
       <Sheet page={page} lang={lang} n={n} />
     </div>
   );
